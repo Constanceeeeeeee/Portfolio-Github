@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Portfolio R&T</title>
+    <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">PORTFOLIO <strong>R&T</strong></div>
+        <nav>
+            <a href="Site.html">Accueil</a>
+            <a href="profil.html">Profil</a>
+            <a href="saes.html">Mes SAÉ</a>
+            <a href="bilan.html">Bilans Compétences</a>
+        </nav>
+    </header>
+
+    <section class="fade-in">
+        <h2>Présentation & Projection Professionnelle</h2>
+        <div class="content-box fade-in">
+            <p>Ce site documente mon évolution à travers les Situations d'Apprentissage et d'Évaluation (SAÉ).</p>
+            <h3>Présentation synthétique de ton profil (formation, compétences principales, domaine d’intérêt)</h3>
+            <ul>
+                <li><strong>Blabla :</strong> blabla</li>
+            </ul>
+
+            <h3> Les évolutions majeures observées au cours de ta formation</h3>
+            <ul>
+                <li><strong>Blabla :</strong> blabla</li>
+            </ul>
+
+            <h3> Une projection professionnelle : les métiers, secteurs ou technologies vers lesquels tu souhaites évoluer </h3>
+            <ul>
+                <li><strong>Blabla :</strong> blabla</li>
+            </ul>
+
+            <strong>Lien vers profil linkedin ou cv en ligne </strong>
+
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 - IUT Grand Ouest Normandie - Département R&T Caen</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

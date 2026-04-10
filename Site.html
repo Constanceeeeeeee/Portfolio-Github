@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT R&T - Caen</title>
+    <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">PORTFOLIO <strong>R&T</strong></div>
+        <nav>
+            <a href="Site.html">Accueil</a>
+            <a href="profil.html">Profil</a>
+            <a href="saes.html">Mes SAÉ</a>
+            <a href="bilan.html">Bilans Compétences</a>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero">
+        <div class="profile-pic"> 
+        <img src="Image1.jpg" alt="Photo de Constance" id="photo"> </div>
+        <h1 class="fade-in">Bienvenue sur mon Portfolio</h1>
+        <p class="fade-in"> Je suis Constance ALLAIS--BIHEL, étudiante en BUT Réseaux et Télécommunications parcours 
+            cyber sécurité à l'IUT de Caen Grand Ouest Normandie.</p>
+        <p class="fade-in"> Issue d'un bac général Mathématiques, Science et Vie de la Terre, j'aime découvrir tous les 
+            jours de nouvelles choses au BUT.</p>
+        <p class="fade-in">Sur ce site vous decouvrirez une présentation de moi, mes différents projets réalisés lors 
+            de cette année scolaire 2025-2026 et un résumé des compétences acquises.</p>
+    </section>
+
+    <footer>
+        <p>© 2026 - IUT Grand Ouest Normandie - Département R&T Caen</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

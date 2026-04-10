@@ -1,0 +1,207 @@
+/* Couleurs pastelles et variables */
+:root {
+    --bg-main: #fdfbfb;
+    --bg-alt: #f1f4f9;
+    --accent-blue: #d4eaf7;
+    --accent-green: #e2f0cb;
+    --accent-purple: #e0d7ff;
+    --text-color: #546e7a;
+    --white: #ffffff;
+}
+
+/* Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-main);
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+/* Header & Nav */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.2rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 25px;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #90caf9;
+}
+
+/* Sections */
+section {
+    padding: 100px 10%;
+}
+
+.alt-bg { background-color: var(--bg-alt); }
+
+h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: #78909c;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(120deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+    text-align: center;
+    padding: 150px 10%;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 230px;
+    background: var(--white);
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    border: 8px solid rgba(255,255,255,0.3);
+}
+
+#photo{
+    width: 180px;
+    height: 230px;
+    border-radius: 50%;
+}
+
+
+/* Grilles et Cartes */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.content-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Boutons et Tags */
+.btn {
+    background: var(--accent-blue);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+    margin-top: 15px;
+    font-family: inherit;
+}
+
+.skill-tag {
+    display: inline-block;
+    background: var(--accent-green);
+    padding: 8px 15px;
+    border-radius: 50px;
+    margin: 5px;
+    font-size: 0.85rem;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.8rem;
+    background: var(--bg-alt);
+}
+
+/* Style pour rendre toute la carte cliquable */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.tag {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #90caf9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ac-list {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #9ea7ad;
+    font-style: italic;
+}
+
+/* Effet de zoom plus prononcé au survol pour montrer que c'est cliquable */
+.card-link:hover .card {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+    background-color: #f8fbff; /* Changement léger de couleur au survol */
+}
+
+/* Style pour le titre principal des pages SAÉ */
+h1 {
+    color: #78909c;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 20px 0;
+}
+
+h3 {
+    margin-top: 30px;
+    color: #90caf9;
+}
+
+/* Liste des compétences dans le détail */
+.skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Animation douce pour le lien de retour */
+nav a:first-child {
+    font-weight: 600;
+    color: #90caf9;
+}
