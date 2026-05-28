@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse SAÉ 1.05 – Constance ALLAIS-BIHEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f4f6f9;
+            --accent-sage: #c4dbd3;
+            --text-color: #485e6e;
+            --text-dark: #1a2b3c;
+            --white: #ffffff;
+            --border: rgba(0,0,0,0.07);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; color: var(--text-color); background: var(--bg-main); line-height: 1.6; }
+        header { background: white; padding: 1.1rem 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; color: var(--text-dark); text-decoration: none; }
+        .logo strong { color: #6aaad8; }
+        .btn-back { text-decoration: none; color: #5a95c8; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        .meta-badge { display: inline-block; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 700; background: #daeedb; color: #2d7a50; padding: 4px 14px; border-radius: 50px; margin-bottom: 15px; text-transform: uppercase; }
+        h1 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 2.2rem; margin-bottom: 30px; }
+        .content-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-bottom: 30px; }
+        h2 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 1.3rem; margin: 25px 0 15px; border-left: 4px solid #88b8a8; padding-left: 12px; }
+        h2:first-of-type { margin-top: 0; }
+        p { font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
+        ul { margin-bottom: 15px; padding-left: 20px; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+        .ac-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .ac-item { font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: #edf5f2; color: #2d7a50; border: 1px solid rgba(45,122,80,0.1); }
+        footer { text-align: center; padding: 40px; font-size: 0.78rem; color: #9fb5c5; border-top: 1px solid var(--border); background: white; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="saes.html" class="logo">PORTFOLIO <strong>R&T</strong></a>
+        <a href="saes.html" class="btn-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Retour aux SAÉ
+        </a>
+    </header>
+
+    <div class="container">
+        <span class="meta-badge">SAÉ 1.05 · Semestre 1</span>
+        <h1>Traiter des données (Projet OpenStreetMap & Cartographie)</h1>
+
+        <div class="content-card">
+            <h2>Description du projet & Contexte</h2>
+            <p>Ce projet consistait à développer une application d'automatisation en Python (v3.11) capable d'extraire, filtrer et transformer des données géographiques structurées au format JSON. Ces données provenaient directement de la base mondiale collaborative OpenStreetMap (OSM).</p>
+
+            <h2>Objectifs et Problématique</h2>
+            <p>La problématique majeure résidait dans le traitement de flux massifs d'informations et l'application de transformations mathématiques complexes afin de générer un rendu visuel. Nous devions manipuler des structures de données imbriquées, utiliser des formules de projection de coordonnées (Slippy Maps Web Mercator) et générer dynamiquement une carte routière personnalisée image par image.</p>
+
+            <h2>Mon Rôle et Travail Réalisé</h2>
+            <p>J'ai pris en charge le développement de l'algorithme sous-jacent en Python :</p>
+            <ul>
+                <li><strong>Parsing et Filtrage de fichiers :</strong> Écriture de fonctions pour analyser les fichiers JSON volumineux extraits d'OSM, et extraction ciblée des nœuds géographiques d'intérêt (coordonnées de points d'intérêt, tracés de routes à Caen).</li>
+                <li><strong>Calcul Mathématique de Projection :</strong> Implémentation en Python de la formule d'indexation des tuiles Slippy Maps à l'aide des modules trigonométriques et logarithmiques de la bibliothèque `math`.</li>
+                <li><strong>Génération Graphique (Bibliothèque Pillow) :</strong> Modélisation et dessin par script des formes géométriques et des repères textuels sur l'image finale pour recréer le plan de ville.</li>
+            </ul>
+
+            <h2>Apprentissages Critiques (AC) Validés</h2>
+            <div class="ac-list">
+                <span class="ac-item">RT3 – AC1 : Structurer un algorithme logique complexe pour manipuler des données distantes</span>
+                <span class="ac-item">RT3 – AC2 : Extraire et parser des données JSON structurées</span>
+                <span class="ac-item">RT3 – AC3 : Exploiter la documentation d'une API ou de bibliothèques tierces (Pillow, OpenStreetMap)</span>
+            </div>
+
+            <h2>Analyse Réflexive</h2>
+            <p><strong>Difficultés rencontrées et solutions :</strong> Notre plus grande difficulté a été de comprendre et de coder la formule de conversion mathématique pour l'indexation des tuiles (Slippy Maps), notamment l'utilisation des fonctions trigonométriques et de la fonction log pour la latitude. Au début, nos calculs de tuiles Y étaient décalés. Nous avons résolu ce problème en testant la fonction pas à pas avec des coordonnées de référence connues fournies dans le sujet (le cas d'école du zoom 15).</p>
+            <p><strong>Ce que cette SAÉ m'a appris :</strong> J'ai compris comment sont structurées les données mondiales d'OpenStreetMap et comment fonctionnent les services de cartographie en ligne (Google Maps, OSM) derrière leur interface utilisateur. Sur le plan technique, j'ai appris à manipuler des images par le code, ce qui m'a montré la polyvalence de Python pour le traitement de données.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 – IUT Grand Ouest Normandie – Département R&T Caen · Constance ALLAIS-BIHEL</p>
+    </footer>
+
+</body>
+</html>

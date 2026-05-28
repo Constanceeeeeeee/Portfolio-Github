@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT R&T – Constance ALLAIS--BIHEL</title>
+    <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ─── Variables ─── */
+        :root {
+            --bg-main: #f4f6f9;
+            --bg-alt: #e8edf4;
+            --accent-blue: #bad4ee;
+            --accent-green: #c4e0bc;
+            --accent-purple: #cfc6f0;
+            --accent-sage: #c4dbd3;
+            --text-color: #485e6e;
+            --text-dark: #1a2b3c;
+            --white: #ffffff;
+            --border: rgba(0,0,0,0.07);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background: var(--bg-main);
+            scroll-behavior: smooth;
+        }
+
+        /* ─── Header ─── */
+        header {
+            background: rgba(255,255,255,0.97);
+            padding: 1.1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+        .logo strong { color: #6aaad8; }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 28px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.25s;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 2px;
+            background: #90caf9;
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+        nav a:hover { color: #4a8ec2; }
+        nav a:hover::after { width: 100%; }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d4e8f8 0%, #ddd8f7 50%, #c8dfd6 100%);
+            padding: 80px 10% 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Déco SVG flottantes */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px; right: -120px;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(180,220,255,0.45) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -80px;
+            width: 350px; height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200,240,185,0.4) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+            max-width: 1050px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Photo */
+        .profile-wrap {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .profile-ring {
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #7aaee0, #9d8ee8, #6eb8a4);
+            box-shadow: 0 16px 50px rgba(80,120,200,0.22);
+        }
+
+        .profile-ring-inner {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: var(--white);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #photo {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Badges sous la photo */
+        .badge-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 50px;
+            letter-spacing: 0.3px;
+        }
+        .badge-blue   { background: #c8dff0; color: #2d6498; }
+        .badge-purple { background: #d8d0f0; color: #5b47b0; }
+        .badge-green  { background: #c4ddd5; color: #2d6e5a; }
+
+        /* Texte hero */
+        .hero-text { flex: 1; }
+
+        .eyebrow {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #5a95c8;
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.2s forwards;
+        }
+
+        .hero-text h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.35s forwards;
+        }
+
+        .hero-text h1 span { color: #5a95c8; }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #7a96ab;
+            margin-bottom: 22px;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.5s forwards;
+        }
+
+        .hero-desc {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 0;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.65s forwards;
+            text-align: justify;
+        }
+
+        /* ─── Séparateur décoratif ─── */
+        .wave {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            margin-top: -2px;
+        }
+        .wave svg { display: block; }
+
+        /* ─── Section À propos rapide ─── */
+        .about-strip {
+            background: white;
+            padding: 60px 10%;
+        }
+
+        .strip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .strip-card {
+            background: var(--bg-main);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .strip-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+        }
+
+        .strip-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .strip-card h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .strip-card p {
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* ─── Footer ─── */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.78rem;
+            color: #9fb5c5;
+            background: white;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ─── Animations ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 760px) {
+            .hero-inner { flex-direction: column; text-align: center; gap: 36px; }
+            .hero-text h1 { font-size: 1.9rem; }
+            .cta-group { justify-content: center; }
+            nav a { margin-left: 14px; font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">PORTFOLIO <strong>R&T</strong></div>
+        <nav>
+            <a href="Site.html">Accueil</a>
+            <a href="profil.html">Profil</a>
+            <a href="saes.html">Mes SAÉ</a>
+            <a href="bilan.html">Bilans Compétences</a>
+        </nav>
+    </header>
+
+    <!-- ════════ HERO ════════ -->
+    <section class="hero">
+        <div class="hero-inner">
+
+            <!-- Photo + badges -->
+            <div class="profile-wrap">
+                <div class="profile-ring">
+                    <div class="profile-ring-inner">
+                        <img src="Image1.jpg" alt="Photo de Constance ALLAIS-BIHEL" id="photo">
+                    </div>
+                </div>
+                <div class="badge-row">
+                    <span class="badge badge-blue">BUT R&T</span>
+                    <span class="badge badge-purple">Cyber</span>
+                    <span class="badge badge-green">IUT Caen</span>
+                </div>
+            </div>
+
+            <!-- Texte -->
+            <div class="hero-text">
+                <p class="eyebrow">Portfolio professionnel · 2025–2026</p>
+                <h1>Constance<br><span>ALLAIS--BIHEL</span></h1>
+                <p class="hero-subtitle">Étudiante en BUT Réseaux &amp; Télécommunications — parcours Cybersécurité</p>
+                <p class="hero-desc">
+                    Issue d'un bac général Mathématiques &amp; Sciences de la Vie et de la Terre,
+                    j'ai intégré le BUT Réseaux et Télécommunications à l'IUT Grand Ouest Normandie
+                    de Caen avec l'objectif de me spécialiser dans la cybersécurité. Curieuse et
+                    rigoureuse, j'apprécie autant les aspects techniques — configuration réseau,
+                    administration système, sécurisation d'infrastructures — que la dimension humaine
+                    du métier : communiquer, vulgariser et travailler en équipe.
+                    <br><br>
+                    Ce portfolio retrace mon parcours à travers les Situations d'Apprentissage et
+                    d'Évaluation (SAÉ) de première année. Vous y trouverez l'analyse de mes projets,
+                    les compétences acquises, les apprentissages critiques mobilisés, ainsi qu'un
+                    bilan de ma progression semestrielle. Il reflète à la fois ce que j'ai réalisé
+                    et la façon dont j'ai grandi en tant que future professionnelle du numérique.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Vague déco -->
+    <div class="wave">
+        <svg viewBox="0 0 1440 54" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,32 C360,60 1080,0 1440,32 L1440,54 L0,54 Z"
+                  fill="#ffffff"/>
+        </svg>
+    </div>
+
+    <!-- ════════ INFOS RAPIDES ════════ -->
+    <section class="about-strip">
+        <div class="strip-grid">
+            <div class="strip-card fade-in">
+                <span class="strip-icon">🎓</span>
+                <h3>Formation</h3>
+                <p>BUT R&T – parcours Cybersécurité<br>IUT Caen · promo 2026</p>
+            </div>
+            <div class="strip-card fade-in">
+                <span class="strip-icon">🔒</span>
+                <h3>Domaine</h3>
+                <p>Réseaux, télécommunications et sécurité des systèmes d'information</p>
+            </div>
+            <div class="strip-card fade-in">
+                <span class="strip-icon">📂</span>
+                <h3>Ce site</h3>
+                <p>Présentation · 5 SAÉ analysées · Bilans par compétence</p>
+            </div>
+            <div class="strip-card fade-in">
+                <span class="strip-icon">🎯</span>
+                <h3>Objectif</h3>
+                <p>Démontrer la maîtrise progressive des compétences du référentiel R&T</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 – IUT Grand Ouest Normandie – Département R&T Caen · Constance ALLAIS-BIHEL</p>
+    </footer>
+
+    <script>
+        // Intersection Observer pour les .fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    // Décalage en cascade pour les cartes groupées
+                    const delay = entry.target.closest('.strip-grid')
+                        ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 100
+                        : 0;
+                    setTimeout(() => entry.target.classList.add('visible'), delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

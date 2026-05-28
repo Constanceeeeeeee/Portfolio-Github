@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse SAÉ 1.04 – Constance ALLAIS-BIHEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f4f6f9;
+            --accent-green: #c4e0bc;
+            --text-color: #485e6e;
+            --text-dark: #1a2b3c;
+            --white: #ffffff;
+            --border: rgba(0,0,0,0.07);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; color: var(--text-color); background: var(--bg-main); line-height: 1.6; }
+        header { background: white; padding: 1.1rem 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; color: var(--text-dark); text-decoration: none; }
+        .logo strong { color: #6aaad8; }
+        .btn-back { text-decoration: none; color: #5a95c8; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        .meta-badge { display: inline-block; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 700; background: #e2f3df; color: #2d7a50; padding: 4px 14px; border-radius: 50px; margin-bottom: 15px; text-transform: uppercase; }
+        h1 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 2.2rem; margin-bottom: 30px; }
+        .content-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-bottom: 30px; }
+        h2 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 1.3rem; margin: 25px 0 15px; border-left: 4px solid #7ac0a8; padding-left: 12px; }
+        h2:first-of-type { margin-top: 0; }
+        p { font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
+        ul { margin-bottom: 15px; padding-left: 20px; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+        .ac-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .ac-item { font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: #eaf7e8; color: #2d7a50; border: 1px solid rgba(45,122,80,0.1); }
+        footer { text-align: center; padding: 40px; font-size: 0.78rem; color: #9fb5c5; border-top: 1px solid var(--border); background: white; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="saes.html" class="logo">PORTFOLIO <strong>R&T</strong></a>
+        <a href="saes.html" class="btn-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Retour aux SAÉ
+        </a>
+    </header>
+
+    <div class="container">
+        <span class="meta-badge">SAÉ 1.04 · Semestre 1</span>
+        <h1>Se présenter sur Internet</h1>
+
+        <div class="content-card">
+            <h2>Présentation de la SAÉ </h2>
+            <p>L’objectif de cette SAÉ était de concevoir un site web multipages adaptatif (Responsive Design) en utilisant exclusivement du HTML et du CSS. Ce travail 
+                demandait une rigueur méthodologique, notamment en respectant la norme W3C.</p>
+
+            <h2>Objectifs et Problématique</h2>
+            <p>La problématique était de créer une interface utilisateur fluide et lisible tout en respectant le cahier des charges : conformité totale de la syntaxe aux 
+                normes du W3C, adaptabilité parfaite à tous les écrans (mobiles, tablettes, PC) et application rigoureuse des normes d'accessibilité numérique (WCAG 2.0 AA) et
+                déposer le rendu à la date donnée : le 19 décembre 2025.</p>
+            <li> Le site Internet devra comporter au minimum trois pages :
+                </br> Une page d'accueil (la plus visuelle) présentant l'objet du site, et un contenu s'y afférant. 
+                </br> Une page dédiée au sujet du site, riche en contenu. 
+                </br> Une page à propos de l'auteur ou celui-ci sera présenté. </li>
+            <li> Sans oublier les dépôts nécessaire de la R1.15</li>
+
+            <h2>Apprentissages Critiques (AC) Validés</h2>
+            <div class="ac-list">
+                <span class="ac-item">AC13.01 Utiliser un système informatique et ses outils</span>
+                <span class="ac-item">AC13.04 Connaître l’architecture et les technologies d’un site Web</span>
+            </div>
+
+            <h2>Analyse Réflexive</h2>
+            <p><strong>Points forts :</strong> </p>
+            <p><strong>Nouveau : </strong> Ce projet m'a fait réaliser que le Web ne s'arrête pas au design visuel. L'accessibilité (permettre à un lecteur 
+                d'écran de naviguer aisément) et le respect des critères sémantiques stricts du W3C sont des composantes indispensables d’un produit fini professionnel. </p>
+            <p><strong>Difficultés rencontrées et solutions :</strong> La principale contrainte a été d'harmoniser le rendu sur les écrans très étroits sans dénaturer la 
+                maquette originale. L'organisation du CSS s'est complexifiée à l'apparition des multiples *media queries*. Pour résoudre cela, j’ai adopté une approche 
+                "Mobile-First", qui consiste à bâtir d'abord l'arborescence pour smartphone avant d’étendre les styles vers les écrans plus larges.</p>
+            <p><strong>A améliorer :</strong> </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 – IUT Grand Ouest Normandie – Département R&T Caen · Constance ALLAIS-BIHEL</p>
+    </footer>
+
+</body>
+</html>

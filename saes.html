@@ -3,231 +3,588 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes SAÉ - Portfolio R&T</title>
-    <link rel="stylesheet" href="css.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Mes SAÉ – Constance ALLAIS-BIHEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Navigation interne entre SAÉ */
-        .sae-nav {
+        /* ─── Variables (identiques à Site.html) ─── */
+        :root {
+            --bg-main: #f4f6f9;
+            --bg-alt: #e8edf4;
+            --accent-blue: #bad4ee;
+            --accent-green: #c4e0bc;
+            --accent-purple: #cfc6f0;
+            --accent-sage: #c4dbd3;
+            --text-color: #485e6e;
+            --text-dark: #1a2b3c;
+            --white: #ffffff;
+            --border: rgba(0,0,0,0.07);
+        }
+ 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background: var(--bg-main);
+            scroll-behavior: smooth;
+        }
+ 
+        /* ─── Header ─── */
+        header {
+            background: rgba(255,255,255,0.97);
+            padding: 1.1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+ 
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+        .logo strong { color: #6aaad8; }
+ 
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 28px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.25s;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 2px;
+            background: #90caf9;
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+        nav a:hover { color: #4a8ec2; }
+        nav a:hover::after { width: 100%; }
+        nav a.active { color: #4a8ec2; }
+        nav a.active::after { width: 100%; }
+ 
+        /* ─── Hero bannière ─── */
+        .page-hero {
+            background: linear-gradient(135deg, #d4e8f8 0%, #ddd8f7 50%, #c8dfd6 100%);
+            padding: 80px 10% 60px;
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 360px; height: 360px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(180,220,255,0.4) 0%, transparent 70%);
+            pointer-events: none;
+        }
+ 
+        .page-hero-inner {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+ 
+        .page-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #5a95c8;
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.1s forwards;
+        }
+ 
+        .page-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.25s forwards;
+        }
+ 
+        .page-hero h1 span { color: #5a95c8; }
+ 
+        .page-hero p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            max-width: 640px;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.4s forwards;
+        }
+ 
+        /* ─── Filtre semestre ─── */
+        .filter-bar {
+            background: white;
+            padding: 20px 10%;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+ 
+        .filter-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8aa5ba;
+            margin-right: 4px;
+        }
+ 
+        .filter-btn {
+            padding: 6px 18px;
+            border-radius: 50px;
+            border: 1.5px solid var(--border);
+            background: var(--bg-main);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #5a95c8;
+            color: white;
+            border-color: #5a95c8;
+        }
+ 
+        /* ─── Compteur + grille ─── */
+        .saes-section {
+            padding: 52px 10% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .section-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 32px;
+        }
+ 
+        .section-meta h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+ 
+        .count-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            background: var(--accent-blue);
+            color: #2d6498;
+            padding: 4px 14px;
+            border-radius: 50px;
+        }
+ 
+        /* ─── Grille des cartes ─── */
+        .saes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
+        }
+ 
+        /* ─── Carte SAÉ ─── */
+        .sae-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+        }
+ 
+        .sae-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+ 
+        .sae-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        }
+ 
+        /* Bande colorée en haut de chaque carte */
+        .card-stripe {
+            height: 6px;
+            width: 100%;
+        }
+        .stripe-blue   { background: linear-gradient(90deg, #7ab8e8, #a0d0f0); }
+        .stripe-purple { background: linear-gradient(90deg, #a89de0, #c8bff5); }
+        .stripe-green  { background: linear-gradient(90deg, #7ac0a8, #a0d8c0); }
+        .stripe-sage   { background: linear-gradient(90deg, #88b8a8, #b0d0c4); }
+ 
+        .card-body {
+            padding: 28px 28px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+ 
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+ 
+        .sae-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
+        .code-s1 { background: #d8edf8; color: #2d6498; }
+        .code-s2 { background: #d8d0f0; color: #5b47b0; }
+ 
+        .sem-pill {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 50px;
+            background: var(--bg-main);
+            color: #8aa5ba;
+            white-space: nowrap;
+        }
+ 
+        .sae-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.35;
+        }
+ 
+        .sae-desc {
+            font-size: 0.84rem;
+            line-height: 1.75;
+            color: var(--text-color);
+            flex: 1;
+        }
+ 
+        /* Compétences / AC chips */
+        .ac-chips {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 50px;
+            gap: 6px;
         }
-        .sae-nav a {
-            background: var(--accent-blue);
-            color: var(--text-color);
-            padding: 8px 18px;
+ 
+        .ac-chip {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
             border-radius: 50px;
+            background: var(--bg-main);
+            color: var(--text-color);
+            border: 1px solid var(--border);
+        }
+        .ac-chip.rt1 { background: #d8edf8; color: #2d6498; border-color: #b8d8f0; }
+        .ac-chip.rt2 { background: #d8d0f0; color: #5b47b0; border-color: #c0b8e8; }
+        .ac-chip.rt3 { background: #d0ecdc; color: #2d7a50; border-color: #b0d8c0; }
+ 
+        /* Footer de la carte */
+        .card-footer {
+            padding: 16px 28px 22px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: flex-end;
+        }
+ 
+        .btn-voir {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: #5a95c8;
+            transition: gap 0.25s, color 0.25s;
         }
-        .sae-nav a:hover {
-            background: var(--accent-purple);
+        .btn-voir:hover {
+            color: #3a78b0;
+            gap: 11px;
         }
-        /* Séparateur visuel entre chaque SAÉ */
-        .sae-block {
-            margin-bottom: 60px;
-            scroll-margin-top: 100px;
+        .btn-voir svg {
+            width: 16px; height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
-        .sae-block .content-box {
-            border-left: 4px solid var(--accent-blue);
+ 
+        /* ─── Vague déco ─── */
+        .wave {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            margin-top: -2px;
+        }
+        .wave svg { display: block; }
+ 
+        /* ─── Footer ─── */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.78rem;
+            color: #9fb5c5;
+            background: white;
+            border-top: 1px solid var(--border);
+        }
+ 
+        /* ─── Animations ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+ 
+        /* ─── Responsive ─── */
+        @media (max-width: 760px) {
+            .page-hero h1 { font-size: 1.8rem; }
+            .saes-grid { grid-template-columns: 1fr; }
+            nav a { margin-left: 14px; font-size: 0.82rem; }
+            .section-meta { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
 <body>
-
+ 
     <header>
         <div class="logo">PORTFOLIO <strong>R&T</strong></div>
         <nav>
             <a href="Site.html">Accueil</a>
             <a href="profil.html">Profil</a>
-            <a href="saes.html">Mes SAÉ</a>
+            <a href="saes.html" class="active">Mes SAÉ</a>
             <a href="bilan.html">Bilans Compétences</a>
         </nav>
     </header>
-
-    <section>
-        <h2 class="fade-in">Mes Situations d'Apprentissage (SAÉ)</h2>
-
-        <!-- Navigation interne rapide -->
-        <div class="sae-nav fade-in">
-            <a href="#sae11">SAÉ 11</a>
-            <a href="#sae12">SAÉ 12</a>
-            <a href="#sae13">SAÉ 13</a>
-            <a href="#sae14">SAÉ 14</a>
-            <a href="#sae15">SAÉ 15</a>
+ 
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <h1>Mes <span>SAÉ</span></h1>
+            <p>
+                Chaque SAÉ me place dans une situation professionnelle simulée ou réelle, visant une ou plusieurs
+                compétences du référentiel R&T. Retrouvez ici l'ensemble de mes cinq SAÉ de première année.
+            </p>
         </div>
-
-        <!-- SAÉ 11 -->
-        <div id="sae11" class="sae-block fade-in">
-            <div class="content-box">
-                <span class="tag">S1</span>
-                <h1>SAÉ 11 - Sensibilisation à l'hygiène informatique</h1>
-                <hr>
-
-                <h3>1. Description et Objectifs</h3>
-                <p>Cette Saé à pour but de faire découvrir l'escence de l'hygiène informatique, les bons comportements
-                    à adopter face à des équipements informatiques,prendre connaissance des menaces numériques communes et être capable de 
-                    former des utilisateurs non spécialistes à ces bonnes pratiques. Mais aussi , adopter les 
-                </p>
-
-                <h3>2. Apprentissages Critiques (AC) mobilisés</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag">Comprendre les enjeux de la cybersécurité : Identification des menaces et des remédiations à travers le MOOC de l'ANSSI.</li>
-                    <li class="skill-tag">Maîtriser l'hygiène informatique : Mise en œuvre de bonnes pratiques (mots de passe, protocoles sécurisés).</li>
-                    <li class="skill-tag">Vulgariser et transmettre : Capacité à présenter des concepts techniques de façon claire et concise à des tiers.</li>
-                    <li class="skill-tag">Utiliser des outils d'administration : Configuration de services sécurisés et analyse de réseau sous environnement Debian.</li>
-                </ul>
-
-                <h3>3. Tâches réalisées</h3>
-                <p>Recherche et expérimentation technique (en groupe) : Exposé approfondi sur un lot choisi selon votre groupe:
-
-                Exemple (Lot A) : Test de force brute sur Debian et mise en place d'un gestionnaire de mots de passe.
-
-                Exemple (Lot B) : Sécurisation des accès SSH par clés publiques/privées.
-
-                Exemple (Lot C) : Découverte de machines et de services (fingerprinting) via des outils Debian.</p>
-                
-
-                <p>Participation à un TP style "Capture the Flag" (CTF) pour tester ses réflexes techniques.
-
-            Rédaction d'une notice technique collaborative et présentation orale devant un enseignant.
-
-            Passage d'un QCM sur Moodle (30 minutes) pour valider les acquis.</p>
-        
-                <h3>4. Résultats et Traces</h3>
-                <p>Insère ici tes preuves (captures d'écran, extraits de compte-rendu).</p>
-
-                <h3>5. Autoévaluation</h3>
-                <p>Suivi du MOOC "SecNumacadémie" de l'ANSSI pour acquérir les bases théoriques (unités sur l'authentification, la sécurité du poste de travail, etc.).</p>
-            </div>
-        </div>
-
-        <!-- SAÉ 12 -->
-        <div id="sae12" class="sae-block fade-in">
-            <div class="content-box">
-                <span class="tag">S1</span>
-                <h1>SAÉ 12 - S'initier aux réseaux informatiques</h1>
-                <hr>
-
-                <h3>1. Description et Objectifs</h3>
-                <p>Présente ici le contexte : type d'organisation, mission confiée et les compétences visées.</p>
-
-                <h3>2. Apprentissages Critiques (AC) mobilisés</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag">AC11.02 : Comprendre l'architecture</li>
-                    <li class="skill-tag">AC11.03 : Configurer le réseau local</li>
-                    <li class="skill-tag">AC11.04 : ...</li>
-                    <li class="skill-tag">AC11.06 : ...</li>
-                </ul>
-
-                <h3>3. Tâches réalisées</h3>
-                <p>Décris ta contribution personnelle, les outils utilisés et les étapes techniques.</p>
-
-                <h3>4. Résultats et Traces</h3>
-                <p>Photo de la certification mooc et photo de l'exposé.</p>
-
-                <h3>5. Autoévaluation</h3>
-                <p>Analyse les difficultés rencontrées, les solutions apportées et ton niveau de maîtrise.</p>
-            </div>
-        </div>
-
-        <!-- SAÉ 13 -->
-        <div id="sae13" class="sae-block fade-in">
-            <div class="content-box">
-                <span class="tag">S2</span>
-                <h1>SAÉ 13 - Découvrir un dispositif de transmission</h1>
-                <hr>
-
-                <h3>1. Description et Objectifs</h3>
-                <p>Présente ici le contexte : type d'organisation, mission confiée et les compétences visées.</p>
-
-                <h3>2. Apprentissages Critiques (AC) mobilisés</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag">AC11.02 : ... </li>
-                    <li class="skill-tag">AC11.03 : ...</li>
-                    <li class="skill-tag">AC11.05 : ...</li>
-                </ul>
-
-                <h3>3. Tâches réalisées</h3>
-                <p>Décris ta contribution personnelle, les outils utilisés et les étapes techniques.</p>
-
-                <h3>4. Résultats et Traces</h3>
-                <p>Insère ici tes preuves (captures d'écran, extraits de compte-rendu).</p>
-
-                <h3>5. Autoévaluation</h3>
-                <p>Analyse les difficultés rencontrées, les solutions apportées et ton niveau de maîtrise.</p>
-            </div>
-        </div>
-
-        <!-- SAÉ 14 -->
-        <div id="sae14" class="sae-block fade-in">
-            <div class="content-box">
-                <span class="tag">S1</span>
-                <h1>SAÉ 14 - Se présenter sur Internet</h1>
-                <hr>
-
-                <h3>1. Description et Objectifs</h3>
-                <p>Présente ici le contexte : type d'organisation, mission confiée et les compétences visées.</p>
-
-                <h3>2. Apprentissages Critiques (AC) mobilisés</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag">RT3 - Niveau 1 (Tous AC)</li>
-                </ul>
-
-                <h3>3. Tâches réalisées</h3>
-                <p>Décris ta contribution personnelle, les outils utilisés et les étapes techniques.</p>
-
-                <h3>4. Résultats et Traces</h3>
-                <p>Insère ici tes preuves (captures d'écran, extraits de compte-rendu).</p>
-
-                <h3>5. Autoévaluation</h3>
-                <p>Analyse les difficultés rencontrées, les solutions apportées et ton niveau de maîtrise.</p>
-            </div>
-        </div>
-
-        <!-- SAÉ 15 -->
-        <div id="sae15" class="sae-block fade-in">
-            <div class="content-box">
-                <span class="tag">S1</span>
-                <h1>SAÉ 15 -Traitement des données</h1>
-                <hr>
-
-                <h3>1. Description et Objectifs</h3>
-                <p>Présente ici le contexte : type d'organisation, mission confiée et les compétences visées.</p>
-
-                <h3>2. Apprentissages Critiques (AC) mobilisés</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag">Multi-compétences</li>
-                </ul>
-
-                <h3>3. Tâches réalisées</h3>
-                <p>Décris ta contribution personnelle, les outils utilisés et les étapes techniques.</p>
-
-                <h3>4. Résultats et Traces</h3>
-                <p>Insère ici tes preuves (captures d'écran, extraits de compte-rendu).</p>
-
-                <h3>5. Autoévaluation</h3>
-                <p>Analyse les difficultés rencontrées, les solutions apportées et ton niveau de maîtrise.</p>
-            </div>
-        </div>
-
     </section>
+ 
+    <div class="wave">
+        <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,20 C480,40 960,0 1440,20 L1440,40 L0,40 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+ 
+ 
+    <div class="saes-section">
+        <div class="section-meta">
+            <h2>Toutes les Situations d'Apprentissage et d'Évaluation</h2>
+            <span class="count-badge" id="count">5 SAÉ</span>
+        </div>
+ 
+        <div class="saes-grid" id="saes-grid">
 
+            <div class="sae-card" data-sem="s1">
+                <div class="card-stripe stripe-green"></div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <span class="sae-code code-s1">SAÉ 1.01</span>
+                        <span class="sem-pill">Semestre 1</span>
+                    </div>
+                    <h3>Sensibilisation à l'hygiène informatique et à la cybersécurité </h3>
+                    <p class="sae-desc">
+                        Conception et réalisation d'un site web multipages adaptatif (HTML5/CSS3) respectant les normes d'accessibilité (WCAG 2.0 AA), validé par le W3C, et piloté avec les méthodologies de gestion de projet et outils de versioning professionnels (Git/GitHub).
+                    </p>
+                    <div class="ac-chips">
+                        <span class="ac-chip rt3">RT3 – AC1</span>
+                        <span class="ac-chip rt3">RT3 – AC2</span>
+                        <span class="ac-chip rt3">RT3 – AC3</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="sae104.html" class="btn-voir">
+                        Voir l'analyse
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+ 
+            
+            <div class="sae-card" data-sem="s1">
+                <div class="card-stripe stripe-blue"></div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <span class="sae-code code-s1">SAÉ 1.02</span>
+                        <span class="sem-pill">Semestre 1</span>
+                    </div>
+                    <h3>S'initier aux réseaux informatiques</h3>
+                    <p class="sae-desc">
+                        Découverte des fondamentaux des réseaux locaux : câblage, adressage IP,
+                        configuration d'équipements (switch, routeur), et diagnostic de pannes.
+                        Première mise en situation d'administration réseau.
+                    </p>
+                    <div class="ac-chips">
+                        <span class="ac-chip rt1">RT1 – AC11.02</span>
+                        <span class="ac-chip rt1">RT1 – AC11.03</span>
+                        <span class="ac-chip rt1">RT1 – AC11.04</span>
+                        <span class="ac-chip rt1">RT1 – AC11.05</span>
+                        <span class="ac-chip rt1">RT1 – AC11.06</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="sae102.html" class="btn-voir">
+                        Voir l'analyse
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+ 
+            <div class="sae-card" data-sem="s1">
+                <div class="card-stripe stripe-purple"></div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <span class="sae-code code-s1">SAÉ 1.03</span>
+                        <span class="sem-pill">Semestre 1</span>
+                    </div>
+                    <h3>Découverte d'un dispositif de transmission</h3>
+                    <p class="sae-desc">
+                        Découverte et analyse des supports physiques de transmission de données (cuivre et fibre FTTH) en réalisant des mesures et des paramétrages automatiques de conformité, tout en maîtrisant les outils de mesure de base en télécoms.
+                    </p>
+                    <div class="ac-chips">
+                        <span class="ac-chip rt2">RT2 – AC1</span>
+                        <span class="ac-chip rt2">RT2 – AC2</span>
+                        <span class="ac-chip rt2">RT2 – AC3</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="sae103.html" class="btn-voir">
+                        Voir l'analyse
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+ 
+            <div class="sae-card" data-sem="s1">
+                <div class="card-stripe stripe-green"></div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <span class="sae-code code-s1">SAÉ 1.04</span>
+                        <span class="sem-pill">Semestre 1</span>
+                    </div>
+                    <h3> Se présenter sur Internet</h3>
+                    <p class="sae-desc">
+                        Conception et réalisation d'un site web multipages adaptatif (HTML5/CSS3) respectant les normes d'accessibilité (WCAG 2.0 AA), validé par le W3C, et piloté avec les méthodologies de gestion de projet et outils de versioning professionnels (Git/GitHub).
+                    </p>
+                    <div class="ac-chips">
+                        <span class="ac-chip rt3">RT3 – AC1</span>
+                        <span class="ac-chip rt3">RT3 – AC2</span>
+                        <span class="ac-chip rt3">RT3 – AC3</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="sae104.html" class="btn-voir">
+                        Voir l'analyse
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+ 
+            <div class="sae-card" data-sem="s1">
+                <div class="card-stripe stripe-sage"></div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <span class="sae-code code-s1">SAÉ 1.05</span>
+                        <span class="sem-pill">Semestre 1</span>
+                    </div>
+                    <h3>Traitement de données (Python)</h3>
+                    <p class="sae-desc">
+                        Conception d'un programme Python (3.11) automatisé pour manipuler et filtrer des données géographiques JSON issues d'OpenStreetMap, implémenter des formules de projection Slippy Maps Web Mercator et générer un rendu visuel cartographique via Pillow.
+                    </p>
+                    <div class="ac-chips">
+                        <span class="ac-chip rt3">RT3 – AC1</span>
+                        <span class="ac-chip rt3">RT3 – AC2</span>
+                        <span class="ac-chip rt3">RT3 – AC3</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="sae105.html" class="btn-voir">
+                        Voir l'analyse
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+ 
+        </div></div>
+ 
     <footer>
-        <p>© 2026 - IUT Grand Ouest Normandie - Département R&T Caen</p>
+        <p>© 2026 – IUT Grand Ouest Normandie – Département R&T Caen · Constance ALLAIS-BIHEL</p>
     </footer>
-
+ 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+        // ── Filtres semestre ──
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.sae-card');
+        const countEl = document.getElementById('count');
+ 
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                let visible = 0;
+                cards.forEach(card => {
+                    const match = filter === 'all' || card.dataset.sem === filter;
+                    card.style.display = match ? '' : 'none';
+                    if (match) visible++;
+                });
+                countEl.textContent = visible + (visible > 1 ? ' SAÉ' : ' SAÉ');
             });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+ 
+        // ── Scroll reveal ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const idx = Array.from(entry.target.parentElement.children)
+                        .filter(c => c.style.display !== 'none')
+                        .indexOf(entry.target);
+                    setTimeout(() => entry.target.classList.add('visible'), idx * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+ 
+        cards.forEach(card => observer.observe(card));
     </script>
 </body>
 </html>
