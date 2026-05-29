@@ -26,11 +26,22 @@
         .content-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-bottom: 30px; }
         h2 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 1.3rem; margin: 25px 0 15px; border-left: 4px solid #88b8a8; padding-left: 12px; }
         h2:first-of-type { margin-top: 0; }
+        h3 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 1.05rem; margin: 20px 0 10px; color: #2d7a50; }
         p { font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
         ul { margin-bottom: 15px; padding-left: 20px; font-size: 0.95rem; }
         li { margin-bottom: 8px; }
         .ac-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
         .ac-item { font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: #edf5f2; color: #2d7a50; border: 1px solid rgba(45,122,80,0.1); }
+        
+        /* Styles de simulation d'écran pour les rendus d'image */
+        .window-preview { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 8px; margin: 20px 0; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .window-header { background: #edf2f7; padding: 8px 15px; display: flex; gap: 6px; align-items: center; border-bottom: 2px solid #e2e8f0; }
+        .circle { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .red { background: #f56565; } .yellow { background: #ecc94b; } .green { background: #48bb78; }
+        .window-title { font-size: 0.75rem; font-family: monospace; color: #718096; margin-left: 10px; }
+        .window-body { padding: 20px; font-family: 'Helvetica Neue', Arial, sans-serif; color: #2d3748; }
+        .mock-map { width: 100%; height: 200px; background: #e4e9f0 url('https://tile.openstreetmap.org/15/16594/11253.png') no-repeat center; background-size: cover; border: 1px solid #cbd5e0; border-radius: 6px; margin-top: 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4a5568; text-shadow: 0 0 4px white; }
+        
         footer { text-align: center; padding: 40px; font-size: 0.78rem; color: #9fb5c5; border-top: 1px solid var(--border); background: white; margin-top: 60px; }
     </style>
 </head>
@@ -50,21 +61,21 @@
 
         <div class="content-card">
             <h2>Description du projet & Contexte</h2>
-            <p>Ce projet consistait à développer une application d'automatisation en Python (v3.11) capable d'extraire, filtrer et transformer des données géographiques structurées au format JSON. Ces données provenaient directement de la base mondiale collaborative OpenStreetMap (OSM).</p>
+            <p>Ce projet consistait à développer une application d'automatisation en Python capable d'extraire, filtrer et transformer des données géographiques structurées au format JSON. Ces données provenaient directement de la base mondiale collaborative OpenStreetMap (OSM). L'objectif était de lier la programmation réseau (requêtes HTTP transmises aux serveurs d'API) et l'analyse de structures complexes pour valoriser l'information sur un site d'affichage Web.</p>
 
             <h2>Objectifs et Problématique</h2>
-            <p>La problématique majeure résidait dans le traitement de flux massifs d'informations et l'application de transformations mathématiques complexes afin de générer un rendu visuel. Nous devions manipuler des structures de données imbriquées, utiliser des formules de projection de coordonnées (Slippy Maps Web Mercator) et générer dynamiquement une carte routière personnalisée image par image.</p>
+            <p>La problématique majeure résidait dans le traitement de flux massifs d'informations et l'application de transformations mathématiques afin de générer un rendu visuel exploitable. Nous devions manipuler des structures de données imbriquées, requêter des API publiques via le protocole HTTP, utiliser des formules de projection de coordonnées (Slippy Maps Web Mercator) et automatiser la conversion de synthèses textuelles Markdown vers des pages HTML publiables.</p>
 
             <h2>Mon Rôle et Travail Réalisé</h2>
-            <p>J'ai pris en charge le développement de l'algorithme sous-jacent en Python :</p>
+            <p>J'ai pris en charge l'ensemble du développement des algorithmes en Python, structurés en deux programmes principaux :</p>
             <ul>
-                <li><strong>Parsing et Filtrage de fichiers :</strong> Écriture de fonctions pour analyser les fichiers JSON volumineux extraits d'OSM, et extraction ciblée des nœuds géographiques d'intérêt (coordonnées de points d'intérêt, tracés de routes à Caen).</li>
-                <li><strong>Calcul Mathématique de Projection :</strong> Implémentation en Python de la formule d'indexation des tuiles Slippy Maps à l'aide des modules trigonométriques et logarithmiques de la bibliothèque `math`.</li>
-                <li><strong>Génération Graphique (Bibliothèque Pillow) :</strong> Modélisation et dessin par script des formes géométriques et des repères textuels sur l'image finale pour recréer le plan de ville.</li>
+                <li><strong>Parsing et Génération de Fiches Individuelles :</strong> Développement d'une fonction récupérant les métadonnées d'un nœud OSM par son identifiant unique via des requêtes HTTP (module <code>requests</code>). Le script convertit les dictionnaires JSON reçus en rapports Markdown enrichis contenant les caractéristiques du lieu.</li>
+                <li><strong>Implémentation Mathématique (Slippy Maps) :</strong> Codage de la fonction de conversion trigonométrique permettant de projeter des coordonnées géographiques réelles (latitude, longitude) en coordonnées de tuiles graphiques matricielles <code>(xtile, ytile)</code> exploitées par les serveurs de cartes.</li>
+                <li><strong>Analyse Statistique de Données Urbaines :</strong> Programmation d'un second script interrogeant l'API Overpass à l'aide d'une requête structurée pour télécharger l'ensemble des commerces de la ville de Caen. J'ai développé un algorithme de tri par clé d'association (dictionnaires de comptage) pour extraire de façon autonome les trois types d'activités les plus implantées à Caen.</li>
             </ul>
 
             <h2>Apprentissages Critiques (AC) Validés</h2>
-            <div class="ac-list">
+            <div class="ac-list" style="margin-bottom: 20px;">
                 <span class="ac-item">AC13.01 Utiliser un système informatique et ses outils</span>
                 <span class="ac-item">AC13.02 Lire, exécuter, corriger et modifier un programme</span>
                 <span class="ac-item">AC13.03 Traduire un algorithme, dans un langage et pour un environnement donné</span>
@@ -73,9 +84,61 @@
                 <span class="ac-item">AC13.06 S’intégrer dans un environnement propice au développement et au travail collaboratif</span>
             </div>
 
+            <h2>Livrables et Visualisation des Rendus Applicatifs</h2>
+            <p>Le projet génère des documents HTML de manière entièrement automatisée grâce au script Python qui transpile des structures dynamiques Markdown en pages Web via un convertisseur.</p>
+
+            <h3>Rendu 1 : Fiche d'Information de Nœud OSM (Générée par le script 1)</h3>
+            <p>En passant l'ID d'un élément en paramètre de ligne de commande (ex: <code>python3 script1.py 12833537880</code>), le système produit la page Web suivante, intégrant la carte centrée automatique obtenue par le calcul des tuiles :</p>
+            
+            <div class="window-preview">
+                <div class="window-header">
+                    <span class="circle red"></span><span class="circle yellow"></span><span class="circle green"></span>
+                    <span class="window-title">fichier_id_12833537880.html</span>
+                </div>
+                <div class="window-body">
+                    <h1 style="font-family: sans-serif; font-size: 1.6rem; margin-bottom: 10px; color:#1a2b3c;">Crêperie des Beaux-Arts</h1>
+                    <ul style="list-style-type: square; margin-left: 20px; font-family: Arial, sans-serif;">
+                        <li><strong>amenity</strong> : restaurant</li>
+                        <li><strong>cuisine</strong> : crepe</li>
+                        <li><strong>opening_hours</strong> : Mo-Sa 12:00-14:30, 19:00-22:30</li>
+                        <li><strong>wheelchair</strong> : yes</li>
+                    </ul>
+                    <h3 style="margin-top: 15px;">Mini-map</h3>
+                    <div class="mock-map">
+                        [Tuile OSM Dynamique Zoom 15 projetée]
+                    </div>
+                </div>
+            </div>
+
+            <h3>Rendu 2 : Synthèse Statistique de la Ville de Caen (Générée par le script 2)</h3>
+            <p>Le traitement massif des données Overpass permet d'extraire automatiquement le Top 3 des commerces et de lister l'exhaustivité des établissements audités :</p>
+
+            <div class="window-preview">
+                <div class="window-header">
+                    <span class="circle red"></span><span class="circle yellow"></span><span class="circle green"></span>
+                    <span class="window-title">commerces_caen_synthese.html</span>
+                </div>
+                <div class="window-body" style="font-family: Arial, sans-serif;">
+                    <h1 style="font-size: 1.5rem; color:#1a2b3c;">Quels sont les magasins les plus nombreux a Caen</h1>
+                    <p style="margin-top: 10px;">Les 3 types de magasins les plus nombreux a Caen sont :</p>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>bakery</strong> : 48 magasins</li>
+                        <li><strong>clothes</strong> : 42 magasins</li>
+                        <li><strong>hairdresser</strong> : 35 magasins</li>
+                    </ul>
+                    <h2 style="font-size: 1.2rem; margin-top: 20px; border: none; padding: 0; color:#1a2b3c;">Liste des magasins</h2>
+                    <p style="font-family: monospace; font-size: 0.9rem; background: #f7fafc; padding: 10px; border-radius: 4px; line-height: 1.4;">
+                        1 - Boulangerie Marie Blachère = bakery<br>
+                        2 - H&M Centre-Ville = clothes<br>
+                        3 - Coiffure Jean Louis David = hairdresser<br>
+                        4 - Monoprix Caen = supermarket
+                    </p>
+                </div>
+            </div>
+
             <h2>Analyse Réflexive</h2>
-            <p><strong>Difficultés rencontrées et solutions :</strong> Notre plus grande difficulté a été de comprendre et de coder la formule de conversion mathématique pour l'indexation des tuiles (Slippy Maps), notamment l'utilisation des fonctions trigonométriques et de la fonction log pour la latitude. Au début, nos calculs de tuiles Y étaient décalés. Nous avons résolu ce problème en testant la fonction pas à pas avec des coordonnées de référence connues fournies dans le sujet (le cas d'école du zoom 15).</p>
-            <p><strong>Ce que cette SAÉ m'a appris :</strong> J'ai compris comment sont structurées les données mondiales d'OpenStreetMap et comment fonctionnent les services de cartographie en ligne (Google Maps, OSM) derrière leur interface utilisateur. Sur le plan technique, j'ai appris à manipuler des images par le code, ce qui m'a montré la polyvalence de Python pour le traitement de données.</p>
+            <p><strong>Difficultés rencontrées et solutions :</strong> Notre plus grande difficulté a été de coder correctement la formule de conversion mathématique pour l'indexation des tuiles (Slippy Maps), notamment la conversion des coordonnées géographiques en radians et l'utilisation de la fonction inverse hyperbolique <code>asinh</code> présente dans le module <code>math</code>. Au départ, nos index <code>ytile</code> présentaient des incohérences. Nous avons résolu ce problème en effectuant des tests unitaires pas à pas avec des coordonnées géographiques connues de la ville de Caen et en vérifiant nos calculs par rapport au référentiel théorique de l'API OSM.</p>
+            <p><strong>Ce que cette SAÉ m'a appris :</strong> J'ai compris l'architecture globale des services d'informations géographiques collaboratifs et la puissance de la manipulation de données sérialisées au format JSON. Sur le plan professionnel, cela m'a montré la nécessité de choisir des structures algorithmiques efficaces (comme les dictionnaires de comptage) pour traiter des bases de données de plusieurs milliers de lignes sans saturer la mémoire du système.</p>
         </div>
     </div>
 

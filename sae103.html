@@ -31,6 +31,14 @@
         li { margin-bottom: 8px; }
         .ac-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
         .ac-item { font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: #f0edf8; color: #5b47b0; border: 1px solid rgba(91,71,176,0.1); }
+        
+        /* Styles pour la galerie d'images et légendes */
+        .img-container { margin: 25px 0; background: #fafafa; border: 1px solid var(--border); border-radius: 12px; padding: 15px; text-align: center; }
+        .img-container img { max-width: 100%; height: auto; border-radius: 8px; max-height: 400px; object-fit: contain; }
+        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
+        .img-grid .img-container { margin: 0; }
+        .caption { font-size: 0.85rem; font-style: italic; color: #617d8a; margin-top: 10px; line-height: 1.4; }
+        
         footer { text-align: center; padding: 40px; font-size: 0.78rem; color: #9fb5c5; border-top: 1px solid var(--border); background: white; margin-top: 60px; }
     </style>
 </head>
@@ -49,30 +57,76 @@
         <h1>Découverte d'un dispositif de transmission</h1>
 
         <div class="content-card">
+            <!-- 1. CONTEXTE -->
             <h2>Description du projet & Contexte</h2>
-            <p>Cette SAÉ s'est concentrée sur la découverte et l'analyse des supports physiques utilisés pour la transmission de données, en mettant un accent particulier sur le cuivre et la fibre optique (FTTH). L'objectif premier était d'apprendre à exécuter des mesures et des configurations automatisées pour assurer la conformité d'une installation télécoms selon les exigences professionnelles.</p>
+            <p>Menée au sein des laboratoires de télécommunications de l'IUT Grand Ouest Normandie (Campus de Caen), cette SAÉ s'est concentrée sur l'évaluation pratique et l'analyse des supports physiques utilisés pour le transport de données. Nous avons étudié de près deux technologies fondamentales du paysage réseau : les liaisons métalliques (cuivre) et les liaisons optiques de type FTTH (Fiber To The Home). L'objectif premier était de s'approprier les protocoles de tests professionnels et d'apprendre à exécuter des mesures et des configurations pour valider la conformité d'une infrastructure réseau selon les exigences réglementaires des opérateurs.</p>
 
             <h2>Objectifs et Problématique</h2>
-            <p>La problématique centrale reposait sur la capacité à valider la qualité physique d'un canal de transmission. Nous devions comprendre l'impact des perturbations sur les signaux, savoir utiliser les outils de mesure de base du technicien télécoms et automatiser les processus de vérification pour gagner en efficacité et en fiabilité.</p>
+            <p>La problématique centrale reposait sur la capacité à caractériser l'intégrité d'un canal physique et à détecter ses défauts. Un signal injecté subit de nombreuses dégradations (atténuation, diaphonie, dispersion, coupures). L'enjeu de cette SAÉ était de savoir utiliser avec précision les appareils de mesure de base du technicien de terrain pour diagnostiquer ces perturbations et d'automatiser les processus de vérification pour accélérer la livraison de réseaux conformes.</p>
 
-            <h2>Mon Rôle et Travail Réalisé</h2>
-            <p>Au sein de mon équipe, j'ai activement participé aux manipulations matérielles et aux relevés techniques :</p>
-            <ul>
-                <li><strong>Manipulations et Mesures :</strong> Utilisation d'appareils de mesure spécifiques pour analyser l'affaiblissement et la réflectométrie sur des liaisons cuivre et fibre optique.</li>
-                <li><strong>Automatisation :</strong> Paramétrage de scripts et d'outils automatiques pour exécuter les tests de conformité, limitant les erreurs humaines lors des livrables.</li>
-                <li><strong>Communication :</strong> Rédaction de rapports et de documentations techniques formalisés pour synthétiser les résultats des tests.</li>
-            </ul>
-
+            <!-- 2. APPRENTISSAGES CRITIQUES -->
             <h2>Apprentissages Critiques (AC) Validés</h2>
-            <div class="ac-list">
+            <p>Ce projet s'articule autour des compétences et des apprentissages critiques suivants :</p>
+            <div class="ac-list" style="margin-bottom: 20px;">
                 <span class="ac-item">RT2 – AC1 : Maîtriser les outils de mesure de base en télécoms</span>
                 <span class="ac-item">RT2 – AC2 : Exécuter des mesures et des paramétrages automatiques de conformité</span>
                 <span class="ac-item">RT2 – AC3 : Communiquer techniquement de manière adaptée</span>
             </div>
+            <ul>
+                <li><strong>Mise en œuvre de RT2 – AC1 :</strong> Manipulation d'appareils de laboratoire complexes tels que des oscilloscopes numériques, des générateurs de signaux, des analyseurs de réseau et des photomètres optiques.</li>
+                <li><strong>Mise en œuvre de RT2 – AC2 :</strong> Utilisation des fonctions de détection automatique de défauts (mode DTF - Distance To Fault) et étalonnage des coefficients de vélocité ou de longueur d'onde pour obtenir des rapports conformes automatiques.</li>
+                <li><strong>Mise en œuvre de RT2 – AC3 :</strong> Rédaction de comptes-rendus d'ingénierie clairs, associant relevés graphiques, table de marqueurs et interprétations scientifiques des pertes physiques observées.</li>
+            </ul>
 
-            <h2>Analyse Réflexive</h2>
-            <p><strong>Difficultés rencontrées et solutions :</strong> La principale difficulté a été de bien appréhender les notions d'affaiblissement optique et d'interpréter correctement les courbes de réflectométrie de la fibre (FTTH), qui présentaient parfois des pics complexes dus aux connecteurs ou aux soudures. Nous avons surmonté cela en calibrant méticuleusement nos appareils et en confrontant nos résultats aux seuils théoriques de conformité.</p>
-            <p><strong>Ce que j'ai appris :</strong> Cette situation m'a permis de comprendre concrètement la réalité physique derrière les réseaux de communication. J'ai assimilé l'importance cruciale de la rigueur lors des mesures sur site, car un connecteur mal nettoyé peut paralyser toute une liaison optique.</p>
+            <!-- 3. TÂCHES RÉALISÉES & PREUVES CUIVRE -->
+            <h2>Mon Rôle et Travail Réalisé</h2>
+            <p>Au sein de mon équipe, j'ai activement participé aux manipulations matérielles, à la configuration des bancs de tests et aux relevés techniques :</p>
+            
+            <h3>Partie 1 : Caractérisation des supports cuivre</h3>
+            <p>À l'aide d'un générateur de fonctions et d'une longue bobine de câble, nous avons simulé l'envoi d'un signal numérique. J'ai configuré l'oscilloscope pour mesurer en temps réel la déformation de l'onde. Ensuite, nous avons employé un analyseur de réseau vectoriel pour localiser précisément des ruptures physiques sur la ligne par calcul de réflectométrie (DTF).</p>
+
+            <div class="img-container">
+                <img src="image-2.png" alt="Banc de mesure cuivre">
+                <p class="caption"><strong>Figure 1 (image-2.jpg) :</strong> Poste de manipulation cuivre. Configuration du générateur d'impulsions (à droite) relié à l'oscilloscope numérique Siglent (à gauche) à travers une couronne de câble de test.</p>
+            </div>
+
+            <div class="img-grid">
+                <div class="img-container">
+                    <img src="Capture Ketil.png" alt="Signal oscilloscope distordu">
+                    <p class="caption"><strong>Figure 2 :</strong> Visualisation à l'oscilloscope de l'atténuation du signal (courbe jaune) par rapport à l'impulsion d'origine (courbe bleue). <em>Validation RT2-AC1.</em></p>
+                </div>
+                <div class="img-container">
+                    <img src="image.png" alt="Écran DTF analyseur de réseau">
+                    <p class="caption"><strong>Figure 3 :</strong> Écran du Siglent en mode automatique DTF. Localisation parfaite d'une anomalie impédante à 9,92 mètres avec une perte de -10,42 dB. <em>Validation RT2-AC2.</em></p>
+                </div>
+            </div>
+
+            <!-- 4. PREUVES FIBRE -->
+            <h3>Partie 2 : Réflectométrie et photométrie sur boucle locale optique (FTTH)</h3>
+            <p>En manipulant un tiroir de brassage de distribution optique, j'ai mesuré l'affaiblissement global d'une liaison à l'aide d'un photomètre portatif. Cette tâche a nécessité le choix de la bonne longueur d'onde (1550 nm) pour correspondre aux fenêtres de transmission minimales de la fibre monomode.</p>
+
+            <div class="img-grid">
+                <div class="img-container">
+                    <img src="IMG_0979.jpeg" alt="Banc d'épissure et tiroir de brassage fibre">
+                    <p class="caption"><strong>Figure 4 :</strong> Banc de test FTTH. Raccordement de jarretières optiques monomodes sur un tiroir équipé de cassettes d'épissurage pour mesurer l'atténuation d'insertion.</p>
+                </div>
+                <div class="img-container">
+                    <img src="IMG_0977.jpeg" alt="Mesure au photomètre VIAVI">
+                    <p class="caption"><strong>Figure 5 :</strong> Mesure de puissance optique absolue au photomètre VIAVI OLP-35 affichant une puissance reçue de -11,04 dB sous une longueur d'onde de 1550 nm. <em>Validation RT2-AC1.</em></p>
+                </div>
+            </div>
+
+            <!-- 5. AUTOÉVALUATION -->
+            <h2>Analyse Réflexive et Autoévaluation</h2>
+            <p><strong>Points forts :</strong> Maîtrise rapide des interfaces des instruments Siglent et VIAVI. J'ai su faire preuve de minutie, notamment lors du nettoyage des connecteurs optiques à l'alcool isopropylique, évitant ainsi des pertes de signal anormales.</p>
+            
+            <p><strong>Difficultés rencontrées et solutions :</strong> La principale difficulté a été d'interpréter correctement les pics complexes des courbes de réflectométrie sur le cuivre et la fibre optique (FTTH), où chaque connecteur ou soudure crée une rupture d'impédance. Nous avons surmonté cela en calibrant méticuleusement nos appareils (ajustement du facteur de vélocité à 0.66 pour le cuivre en Figure 3) et en confrontant nos résultats empiriques aux seuils théoriques de conformité des normes opérateurs.</p>
+            
+            <p><strong>Ce que cette SAÉ m'a appris :</strong> Cette situation d'apprentissage m'a permis de comprendre concrètement la réalité physique et matérielle qui soutient les couches logiques d'un réseau. J'ai mesuré l'impact direct de la géométrie et de la propreté d'un support sur le débit binaire d'une infrastructure de télécommunication.</p>
+            
+            <p><strong>Ce que j'aurais pu faire autrement :</strong> Nous aurions pu utiliser un injecteur de lumière visible (stylo laser rouge) de manière plus systématique pour repérer visuellement les macro-courbures excessives dans les cassettes d'épissurage de la Figure 4 avant de lancer les mesures automatiques au photomètre.</p>
+            
+            <p><strong>Positionnement personnel :</strong> Grâce à la réussite des diagnostics DTF et des bilans de puissance optique, je me positionne sur un niveau de <strong>Maîtrise Avancée</strong> sur cette compétence d'ingénierie physique.</p>
         </div>
     </div>
 

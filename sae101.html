@@ -31,6 +31,7 @@
         li { margin-bottom: 8px; }
         .ac-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
         .ac-item { font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: #e3f2fd; color: #2d6498; border: 1px solid rgba(45,100,152,0.1); }
+        .notice-box { background: #fff9e6; border: 1px solid #ffe0b2; color: #b78103; padding: 15px 20px; border-radius: 10px; font-size: 0.9rem; margin-top: 15px; display: flex; align-items: center; gap: 10px; }
         footer { text-align: center; padding: 40px; font-size: 0.78rem; color: #9fb5c5; border-top: 1px solid var(--border); background: white; margin-top: 60px; }
     </style>
 </head>
@@ -49,27 +50,52 @@
         <h1>Sensibilisation à l'Hygiène informatique et à la Cybersécurité</h1>
 
         <div class="content-card">
+            <!-- 1. DESCRIPTION & OBJECTIFS -->
             <h2>Description du projet & Objectif</h2>
-            <p>Cette SAÉ nous place dans la position d'un professionnel R&T chargé de sensibiliser ses collaborateurs aux risques du numérique. L'objectif est de s'approprier les bases de l'hygiène informatique pour devenir un acteur averti et responsable, capable de vulgariser des concepts techniques de sécurité pour un public non-spécialiste.</p>
+            <p>Déployée au sein du département Réseaux et Télécommunications de l'IUT Grand Ouest Normandie (Campus de Caen), cette SAÉ nous place dans la position d'un professionnel R&T chargé de sensibiliser ses collaborateurs aux risques omniprésents du numérique. L'objectif principal était de s'approprier les concepts fondamentaux de l'hygiène informatique préconisés par l'ANSSI afin de devenir un acteur technique averti, éco-responsable et capable de vulgariser la sécurité auprès d'un public non-spécialiste.</p>
 
+            <!-- 2. TÂCHES RÉALISÉES -->
             <h2>Tâches réalisées</h2>
             <ul>
-                <li><strong>Auto-formation ANSSI :</strong> Réalisation complète du MOOC "SecNumacadémie" (Modules sur l'authentification, la sécurité sur Internet, le poste de travail et la mobilité) pour obtenir les bases théoriques.</li>
-                <li><strong>Recherche thématique en groupe :</strong> Étude approfondie de lots techniques. Pour ma part, j'ai travaillé sur la gestion des mots de passe (force brute, gestionnaires) et la sécurisation des accès distants via le protocole SSH.</li>
-                <li><strong>Mise en situation (Challenge CTF) :</strong> Participation à un challenge "Capture the Flag" pour mettre en pratique les techniques de découverte de machines (Nmap), l'identification de services et le diagnostic de vulnérabilités.</li>
-                <li><strong>Certification :</strong> Passage d'un QCM final pour valider les acquis et obtention d'un Open Badge attestant de ma micro-certification en cybersécurité.</li>
+                <li><strong>Auto-formation ANSSI :</strong> Réalisation complète du MOOC "SecNumacadémie" (suivi rigoureux des modules sur l'authentification, la sécurité sur Internet, la protection du poste de travail et la sécurité en situation de mobilité).</li>
+                <li><strong>Recherche thématique en groupe :</strong> Analyse approfondie de lots techniques précis. Pour ma part, j'ai concentré mes recherches sur l'étude des attaques par force brute sur les mots de passe, l'utilisation de gestionnaires de secrets et la sécurisation des connexions distantes via le protocole SSH.</li>
+                <li><strong>Mise en pratique (Challenge CTF) :</strong> Participation active à un challenge technique de type "Capture the Flag". Cette immersion terrain a nécessité l'utilisation de scanners de ports (Nmap), l'identification des services actifs et le diagnostic approfondi des vulnérabilités machines.</li>
+                <li><strong>Validation des compétences :</strong> Réussite au QCM final d'évaluation des acquis en cybersécurité.</li>
             </ul>
 
+            <!-- 3. APPRENTISSAGES CRITIQUES (AC) -->
             <h2>Apprentissages Critiques (AC) Validés</h2>
-            <div class="ac-list">
+            <p>Les jalons de cette situation d'apprentissage s'adossent aux compétences suivantes :</p>
+            <div class="ac-list" style="margin-bottom: 20px;">
                 <span class="ac-item">AC12.01 Mesurer et analyser les signaux </span>
                 <span class="ac-item">AC12.03 Déployer des supports de transmission </span>
                 <span class="ac-item">AC12.05 Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur</span>
             </div>
+            <ul>
+                <li><strong>Mise en œuvre des AC12.01 & AC12.03 :</strong> Appliqués lors de la phase CTF en interceptant, lisant et analysant les flux réseau et les comportements des protocoles d'accès distants (SSH) pour valider l'intégrité de nos architectures de transmission.</li>
+                <li><strong>Mise en œuvre de l'AC12.05 :</strong> Mobilisé lors du rendu écrit et de la restitution orale, où il a fallu traduire les concepts mathématiques et algorithmiques de la cryptographie ou du "brute force" en métaphores simples, accessibles à des collaborateurs métiers non-techniques.</li>
+            </ul>
 
-            <h2>Autoévaluation</h2>
-            <p><strong>Difficultés rencontrées :</strong> La complexité de certains mécanismes de chiffrement (clés publiques/privées SSH) a été difficile à assimiler au début. La vulgarisation lors de l'oral de groupe a également été un défi : il a fallu traduire des concepts comme le "brute force" en termes simples sans perdre la précision technique.</p>
-            <p><strong>Bilan :</strong> Cette SAÉ a été cruciale pour forger ma posture professionnelle. J'ai compris que la sécurité d'un réseau dépend autant de la configuration technique que de la sensibilisation humaine. Je maîtrise désormais l'utilisation de gestionnaires de mots de passe et je sais sécuriser une connexion distante selon les préconisations de l'ANSSI.</p>
+            <!-- 4. RÉSULTATS OBTENUS & PREUVES -->
+            <h2>Résultats obtenus / Preuves et traces</h2>
+            <p>Le travail s'est soldé par l'obtention d'un <strong>Open Badge institutionnel</strong> attestant de ma micro-certification en cybersécurité pour le niveau Hygiène Informatique.</p>
+            
+            <div class="notice-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                Je ne possède malheureusement plus les captures d'écran justificatives de la validation du MOOC.
+            </div>
+
+            <!-- 5. AUTOÉVALUATION -->
+            <h2>Analyse Réflexive et Autoévaluation</h2>
+            <p><strong>Points forts :</strong> Une forte appétence développée pour la sécurité applicative et les diagnostics d'intrusion (CTF). Ma capacité à vulgariser des notions complexes a permis au groupe de structurer un livrable clair et percutant.</p>
+            
+            <p><strong>Difficultés rencontrées et solutions :</strong> La complexité de certains mécanismes de chiffrement asymétrique (comme la génération et l'échange de clés publiques/privées SSH) a été difficile à assimiler au début. La vulgarisation lors de l'oral de groupe a également constitué un réel défi de communication. J'ai surmonté cela en créant des schémas de flux vulgarisés pour illustrer pas à pas les concepts techniques et éviter le jargon inutile.</p>
+            
+            <p><strong>Ce que cette SAÉ m'a appris :</strong> Cette SAÉ a été cruciale pour forger ma posture professionnelle. J'ai compris de manière concrète que la sécurité d'un réseau ou d'un système d'information dépend tout autant de la configuration technique rigoureuse des serveurs que du facteur humain et de la sensibilisation active des utilisateurs.</p>
+            
+            <p><strong>Ce que j'aurais pu faire autrement :</strong> Sur le plan organisationnel, je mettrai désormais en place une politique rigoureuse de sauvegarde externe (utilisation d'un dépôt Git distant ou sauvegarde cloud) pour centraliser et sécuriser l'archivage de mes traces et certifications numériques tout au long de mes projets.</p>
+            
+            <p><strong>Positionnement personnel :</strong> Au regard des compétences acquises sur la sécurisation des connexions distantes selon les préconisations de l'ANSSI et l'usage des outils d'audit, je me positionne sur un niveau de <strong>Maîtrise Intermédiaire</strong>.</p>
         </div>
     </div>
 

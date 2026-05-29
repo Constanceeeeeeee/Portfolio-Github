@@ -5,15 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analyse SAÉ 1.02 – Constance ALLAIS--BIHEL</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f4f6f9;
+            --accent-blue: #b3d1ff;
+            --text-color: #485e6e;
+            --text-dark: #1a2b3c;
+            --white: #ffffff;
+            --border: rgba(0,0,0,0.07);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; color: var(--text-color); background: var(--bg-main); line-height: 1.6; }
+        header { background: white; padding: 1.1rem 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; color: var(--text-dark); text-decoration: none; }
+        .logo strong { color: #6aaad8; }
+        .btn-back { text-decoration: none; color: #5a95c8; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        .meta-badge { display: inline-block; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 700; background: #e0ebff; color: #1e56b3; padding: 4px 14px; border-radius: 50px; margin-bottom: 15px; text-transform: uppercase; }
+        h1 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 2.2rem; margin-bottom: 30px; }
+        .content-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-bottom: 30px; }
+        h2 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 1.3rem; margin: 25px 0 15px; border-left: 4px solid #5a95c8; padding-left: 12px; }
+        h2:first-of-type { margin-top: 0; }
+        h3 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); font-size: 1.05rem; margin: 20px 0 10px; color: #1e56b3; }
+        p { font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
+        ul { margin-bottom: 15px; padding-left: 20px; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+        .ac-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .ac-item { font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: #ebf3ff; color: #1e56b3; border: 1px solid rgba(30,86,179,0.1); }
+        
+        /* Styles pour l'intégration des documents et schémas */
+        .evidence-gallery { display: flex; flex-direction: column; gap: 25px; margin: 25px 0; }
+        .evidence-item { background: #fafafa; border: 1px solid var(--border); border-radius: 12px; padding: 15px; text-align: center; }
+        .evidence-item embed, .evidence-item img { width: 100%; height: 500px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .caption { font-size: 0.85rem; font-style: italic; color: #617d8a; margin-top: 10px; line-height: 1.4; }
+        
+        /* Bloc de code Cisco */
+        pre { background: #1a202c; color: #cbd5e0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.85rem; overflow-x: auto; margin: 15px 0; }
 
+        footer { text-align: center; padding: 40px; font-size: 0.78rem; color: #9fb5c5; border-top: 1px solid var(--border); background: white; margin-top: 60px; }
+    </style>
+</head>
 <body>
 
+    <header>
+        <a href="saes.html" class="logo">PORTFOLIO <strong>R&T</strong></a>
+        <a href="saes.html" class="btn-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Retour aux SAÉ
+        </a>
+    </header>
 
-                <span class="ac-item">AC11.01 Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications</span>
-                <span class="ac-item">AC11.02 Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</span>
-                <span class="ac-item">AC11.03Configurer les fonctions de base du réseau local</span>
-                <span class="ac-item">AC11.04 Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l’administration des réseaux et services fournis</span>
-                <span class="ac-item">AC11.05 Identifier les dysfonctionnements du réseau local et savoir les signaler</span>
-                <span class="ac-item">AC11.06 Installer un poste client, expliquer la procédure mise en place</span>
+    <div class="container">
+        <span class="meta-badge">SAÉ 1.02 · Semestre 1</span>
+        <h1>S'initier aux réseaux informatiques</h1>
+
+        <div class="content-card">
+            <h2>Description du projet & Contexte</h2>
+            <p>Menée en équipe au département Réseaux et Télécommunications de l'IUT Grand Ouest Normandie, cette SAÉ d'envergure consistait à concevoir, dimensionner et déployer l'architecture réseau LAN/WAN sécurisée d'une entreprise multisite (répartie sur 3 salles de TP). À partir d'un réseau brut, notre mission était de segmenter logiquement le trafic, de mettre en œuvre des liaisons fédératrices haut débit redondantes et d'appliquer une politique stricte de durcissement (hardening) pour protéger l'infrastructure contre les cybermenaces.</p>
+
+            <h2>Problématique et Attendus techniques</h2>
+            <p>L'enjeu principal était de garantir l'isolation complète des services internes (Service Logiciel, Comptabilité, Administratif, Vente, Supervision) via des technologies de niveau 2 et 3, tout en maintenant des liaisons d'interconnexion rapides et fiables :</p>
+            <ul>
+                <li>Segmentation rigoureuse par <strong>VLANs</strong> (ID 200 à 250) et sécurisation des interfaces non utilisées (VLAN natif de sécurité 696).</li>
+                <li>Mise en place de troncs <strong>802.1Q (Trunk)</strong> et agrégation de liens physiques via le protocole <strong>LACP (EtherChannel)</strong> pour doubler la bande passante inter-switch à 200 Mb/s ou 2 Gb/s.</li>
+                <li>Durcissement des accès administratifs : coupure complète de Telnet et HTTP, génération de paires de clés RSA (2048 bits) et déploiement de <strong>SSHv2</strong>.</li>
+            </ul>
+
+            <h2>Mon Rôle et Contribution Personnelle</h2>
+            <p>Au sein de mon groupe de projet, ma responsabilité majeure s'est concentrée sur la <strong>configuration logicielle des commutateurs Cisco (Switchs de couche 2 et 3)</strong>. J'ai traduit les spécifications du plan d'adressage et de sécurité en lignes de commande IOS pour le commutateur central et les commutateurs d'accès (SW1).</p>
+            
+            <p>De plus, face à la complexité de l'infrastructure et pour assurer une continuité opérationnelle parfaite, <strong>notre équipe a fait le choix de rédiger collectivement des notices techniques pas à pas</strong>. Cette démarche de documentation a permis à chaque membre du groupe de comprendre l'ensemble des protocoles implémentés, facilitant ainsi les phases d'interconnexion globale et les tests de diagnostic.</p>
+
+            <h2>Apprentissages Critiques (AC) Validés</h2>
+                <div class="ac-list" style="margin-bottom: 20px;">
+                    <span class="ac-item">AC11.01 Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications</span>
+                    <span class="ac-item">AC11.02 Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</span>
+                    <span class="ac-item">AC11.03Configurer les fonctions de base du réseau local</span>
+                    <span class="ac-item">AC11.04 Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l’administration des réseaux et services fournis</span>
+                    <span class="ac-item">AC11.05 Identifier les dysfonctionnements du réseau local et savoir les signaler</span>
+                    <span class="ac-item">AC11.06 Installer un poste client, expliquer la procédure mise en place</span>
+                </div>
+            <ul>
+                <li><strong>Mise en œuvre des AC11.01 & AC11.02 :</strong> Appliqués lors de la création des interfaces virtuelles de routage (SVI) et du routage inter-VLAN, permettant d'assurer la connectivité des PC tout en filtrant les accès.</li>
+                <li><strong>Mise en œuvre de l'AC11.03 :</strong> Utilisation avancée des commandes de diagnostic IOS Cisco (<code>show ip interface brief</code>, <code>show etherchannel summary</code>) pour valider l'état fonctionnel de nos liaisons.</li>
+                <li><strong>Mise en œuvre de l'AC11.05 :</strong> Validé à travers la mutualisation de nos compétences pour la maquette physique et la co-rédaction des notices explicatives du groupe.</li>
+            </ul>
+
+            <h2>Résultats obtenus / Preuves et Traces</h2>
+            <p>L'infrastructure finale s'est avérée parfaitement opérationnelle, validant l'ensemble des tests d'interconnexion et les politiques de sécurité imposées par le cahier des charges.</p>
+
+            <div class="evidence-gallery">
+                <div class="evidence-item">
+                    <embed src="Schéma_logique.pdf" type="application/pdf">
+                    <p class="caption"><strong>Figure 1 (Schéma_logique.pdf) :</strong> Architecture logique tri-salles intégrant le plan de sous-réseau, la répartition des VLANs (200 à 250) et le positionnement du routage inter-VLAN.</p>
+                </div>
+
+                <div class="evidence-item">
+                    <embed src="Schéma_physique.pdf" type="application/pdf">
+                    <p class="caption"><strong>Figure 2 (Schéma_physique.pdf) :</strong> Topologie physique de brassage inter-baies modélisant les liens d'agrégation EtherChannel (Fa0/1-2) reliant les switchs d'accès de notre groupe.</p>
+                </div>
+            </div>
+
+            <h3>Extrait technique de ma configuration (Switch 1)</h3>
+            <p>Voici un extrait des lignes de commandes IOS Cisco que j'ai implémentées et validées sur le commutateur SW1 pour activer le durcissement SSHv2, l'isolation des ports d'accès et la préparation du tronc LACP :</p>
+
+            <pre>
+hostname SW1
+!
+enable secret ifs
+username admin privilege 15 secret KLNB2o
+!
+no ip http server
+no ip http secure-server
+no service telnet
+ip domain name La_fibre_en_folie
+crypto key generate rsa modulus 2048
+ip ssh version 2
+!
+vlan 200
+  name Service_Logiciel
+vlan 696
+  name Natif_securite
+!
+interface range FastEthernet0/3-7
+ switchport mode access
+ switchport access vlan 200
+!
+interface range FastEthernet0/1-2
+ switchport mode trunk
+ channel-protocol lacp
+ channel-group 1 mode active
+            </pre>
+
+            <h2>Analyse Réflexive et Autoévaluation</h2>
+            <p><strong>Points forts :</strong> Rigueur extrême dans l'écriture des scripts de configuration. L'utilisation systématique de plages d'interfaces (<code>interface range</code>) a limité le risque d'erreur. La mise en place de nos notices internes a été une vraie réussite, évitant les blocages au moment de relier nos équipements à ceux des autres camarades.</p>
+            
+            <p><strong>Difficultés rencontrées et solutions :</strong> La principale difficulté a été l'activation de l'agrégation de liens EtherChannel. Au début, les switchs refusaient de monter le tronc à cause d'une désynchronisation des vitesses de ports et des modes LACP entre nos équipements. En utilisant les commandes de vérification de l'AC11.03, j'ai réaligné les configurations pour s'assurer que les deux côtés négocient en mode <code>active</code>, résolvant ainsi instantanément l'anomalie.</p>
+            
+            <p><strong>Ce que cette SAÉ m'a appris :</strong> Ce projet a déclenché une vraie prise de conscience sur l'importance de la documentation technique en entreprise. Configurer un équipement performant ne suffit pas ; rédiger une notice claire pour ses collaborateurs est indispensable pour garantir la maintenabilité et la sécurité d'un réseau.</p>
+            
+            <p><strong>Positionnement personnel :</strong> Grâce à la maîtrise complète des environnements IOS Cisco et à la validation de l'architecture physique, je me positionne sur un niveau de <strong>Maîtrise Avancée</strong> pour cette compétence d'administration réseau.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 – IUT Grand Ouest Normandie – Département R&T Caen · Constance ALLAIS-BIHEL</p>
+    </footer>
+
 </body>
 </html>
